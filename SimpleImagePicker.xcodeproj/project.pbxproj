@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		5805A4DE2C884F5D00B3FD14 /* SimpleImagePickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4DD2C884F5D00B3FD14 /* SimpleImagePickerApp.swift */; };
-		5805A4E02C884F5D00B3FD14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4DF2C884F5D00B3FD14 /* ContentView.swift */; };
 		5805A4E22C884F5E00B3FD14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5805A4E12C884F5E00B3FD14 /* Assets.xcassets */; };
 		5805A4E52C884F5E00B3FD14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5805A4E42C884F5E00B3FD14 /* Preview Assets.xcassets */; };
+		5805A4EE2C8A37CC00B3FD14 /* ImageAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4ED2C8A37CC00B3FD14 /* ImageAssetModel.swift */; };
+		5805A4F22C8CC9B900B3FD14 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4F12C8CC9B900B3FD14 /* ImageAsset.swift */; };
+		5805A4F42C8CCA0700B3FD14 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4F32C8CCA0700B3FD14 /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5805A4DA2C884F5D00B3FD14 /* SimpleImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5805A4DD2C884F5D00B3FD14 /* SimpleImagePickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImagePickerApp.swift; sourceTree = "<group>"; };
-		5805A4DF2C884F5D00B3FD14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5805A4E12C884F5E00B3FD14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5805A4E42C884F5E00B3FD14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5805A4ED2C8A37CC00B3FD14 /* ImageAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetModel.swift; sourceTree = "<group>"; };
+		5805A4F12C8CC9B900B3FD14 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		5805A4F32C8CCA0700B3FD14 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				5805A4DD2C884F5D00B3FD14 /* SimpleImagePickerApp.swift */,
-				5805A4DF2C884F5D00B3FD14 /* ContentView.swift */,
+				5805A4F32C8CCA0700B3FD14 /* GridView.swift */,
+				5805A4ED2C8A37CC00B3FD14 /* ImageAssetModel.swift */,
+				5805A4F12C8CC9B900B3FD14 /* ImageAsset.swift */,
 				5805A4E12C884F5E00B3FD14 /* Assets.xcassets */,
 				5805A4E32C884F5E00B3FD14 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5805A4E02C884F5D00B3FD14 /* ContentView.swift in Sources */,
+				5805A4F22C8CC9B900B3FD14 /* ImageAsset.swift in Sources */,
+				5805A4EE2C8A37CC00B3FD14 /* ImageAssetModel.swift in Sources */,
+				5805A4F42C8CCA0700B3FD14 /* GridView.swift in Sources */,
 				5805A4DE2C884F5D00B3FD14 /* SimpleImagePickerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +283,7 @@
 				DEVELOPMENT_TEAM = XD7WXJTBY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 목록을 불러오기 위해 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +313,7 @@
 				DEVELOPMENT_TEAM = XD7WXJTBY8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 목록을 불러오기 위해 필요합니다";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
