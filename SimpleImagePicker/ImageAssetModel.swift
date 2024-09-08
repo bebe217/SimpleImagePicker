@@ -18,11 +18,15 @@ import SwiftUI
     
     var images: [ImageAsset] = []
     var selected: ImageAsset? = nil
+    var isLoading = false
+    
+    var lastReqCnt = 0
+    var FETCH_AMOUNT = 40
     
     @ObservationIgnored
     private lazy var requestOptions: PHImageRequestOptions = {
         let options = PHImageRequestOptions()
-        options.deliveryMode = .highQualityFormat
+        options.isSynchronous = true
         return options
     }()
     
@@ -64,8 +68,31 @@ import SwiftUI
         options.includeAssetSourceTypes = [.typeUserLibrary]
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         pHAsset = PHAsset.fetchAssets(with: .image, options: options)
-        pHAsset?.enumerateObjects { asset,_,_ in
-            self.loadImage(for: asset)
+        loadMoreImages()
+    }
+    
+    func loadMoreImages() {
+        Task {
+            guard images.count >= lastReqCnt else {
+                print("wait for last request")
+                return
+            }
+            let index = lastReqCnt
+            let total = pHAsset?.count ?? 0
+            guard index < total else {
+                print("already loaded all assets")
+                return
+            }
+            var end = index + FETCH_AMOUNT
+            if (total < end) {
+                end = total
+            }
+            lastReqCnt = end
+            for index in index..<end  {
+                if let asset = pHAsset?.object(at: index) {
+                    loadImage(for: asset)
+                }
+            }
         }
     }
 

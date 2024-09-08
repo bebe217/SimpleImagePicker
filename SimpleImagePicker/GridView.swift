@@ -29,6 +29,11 @@ struct GridView: View {
                                 model.loadLargeImage(for: item.phAsset)
                             }
                         }
+                        .onAppear {
+                            if (item.id == model.images.last?.id) {
+                                model.loadMoreImages()
+                            }
+                        }
                     }
                     .cornerRadius(3.0)
                     .aspectRatio(1, contentMode: .fit)
