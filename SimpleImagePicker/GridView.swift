@@ -10,11 +10,11 @@ import SwiftUI
 struct GridView: View {
     @Environment(ImageAssetModel.self) var model: ImageAssetModel
 
-    @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: 3)
+    @Binding var gridColumn: Int
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: gridColumns) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: gridColumn)) {
                 ForEach(model.images) { item in
                     GeometryReader { geo in
                         ZStack(alignment: .topTrailing) {

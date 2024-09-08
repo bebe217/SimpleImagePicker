@@ -10,13 +10,15 @@ import SwiftUI
 @main
 struct SimpleImagePickerApp: App {
     @State private var model = ImageAssetModel()
+    
+    @State private var gridColumn = 3
 
     var body: some Scene {
         WindowGroup {
             VStack {
-                TopView()
+                TopView(gridColumn: $gridColumn)
                 ImageView(asset: model.selected)
-                GridView()
+                GridView(gridColumn: $gridColumn)
                     .environment(model)
             }
         }
@@ -24,11 +26,17 @@ struct SimpleImagePickerApp: App {
 }
 
 struct TopView: View {
+    @Binding var gridColumn: Int
+    
     var body: some View {
         HStack {
             Spacer()
             Button {
-                //TODO: change grid count
+                withAnimation {
+                    if (gridColumn < 5) {
+                        gridColumn = gridColumn + 1
+                    }
+                }
             } label: {
                 Image(systemName: "plus")
             }
